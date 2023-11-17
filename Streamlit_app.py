@@ -157,7 +157,7 @@ def main():
                     st.warning(f"No data available for '{sector_name}' in Q3 2023.")
 
 def load_data():
-    csv_file_path = r'D:\Users\Archana\Downloads\The Data Incubator Files\Capstone Project\result_2023.csv'
+    csv_file_path = current_dir / "result_2023.csv"
 
     try:
         data = pd.read_csv(csv_file_path)
