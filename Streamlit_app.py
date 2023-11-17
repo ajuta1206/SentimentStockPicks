@@ -182,4 +182,5 @@ def create_sentiment_bar_plot(data):
     st.pyplot(plt)
 
 if __name__ == '__main__':
+    current_dir = Path(__file__).parent
     main()
