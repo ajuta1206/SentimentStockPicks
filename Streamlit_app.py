@@ -31,6 +31,7 @@ def main():
         if data is not None:
             if not data.empty:
                 data = data.sort_values(by=['Year', 'Quarter'], ascending=False)
+                data['Doc Sentiment Score'] = pd.to_numeric(data['Doc Sentiment Score'], errors='coerce')
                 found_stock = data[(data['Symbol'] == stock_input) & (data['Year'] == data['Year'].max()) & (data['Quarter'] == data['Quarter'].max())]
                 if found_stock.empty:
                     previous_quarter = data[(data['Symbol'] == stock_input) & (data['Year'] == data['Year'].max()) & (data['Quarter'] == (data['Quarter'].max() - 1))]
@@ -46,8 +47,10 @@ def main():
                     
                     create_sentiment_bar_plot(found_stock)
                     
-                    sentiment_score = round(found_stock['Doc Sentiment Score'].values[0], 3)
                     
+                
+                    sentiment_score = round(found_stock['Doc Sentiment Score'].values[0], 3)
+                
                     data= data[data['Sector']==company_sector]
                     top_quantile = data['Doc Sentiment Score'].quantile(0.8)
                     bottom_quantile = data['Doc Sentiment Score'].quantile(0.2)
@@ -97,11 +100,14 @@ def main():
         if st.button("Sector-Wise Stock Recommendations\nQ2 2023"):
             data = load_data()
             unique_sectors = data['Sector'].unique()
+            #data = data[data['Sector'].str.isalpha()]
 
             # Display recommendations for each sector
             for sector_name in unique_sectors:
                 selected_data = data[data['Sector'] == sector_name]
-                sector = sector_name.upper()
+                sector = str(sector_name).upper()
+                data.loc[data['Symbol'] == stock_input, 'Doc Sentiment Score'] = pd.to_numeric(data[data['Symbol'] == stock_input]['Doc Sentiment Score'], errors='coerce')
+                #selected_data['Doc Sentiment Score'] = pd.to_numeric(selected_data['Doc Sentiment Score'], errors='coerce')
 
                 if not selected_data.empty:
                     # Determine the recommendation based on quantiles of sentiment scores
@@ -151,7 +157,7 @@ def main():
                     st.warning(f"No data available for '{sector_name}' in Q3 2023.")
 
 def load_data():
-    csv_file_path = r'D:\Users\Archana\Downloads\Website\sentiment_scores.csv'
+    csv_file_path = r'D:\Users\Archana\Downloads\The Data Incubator Files\Capstone Project\result_2023.csv'
 
     try:
         data = pd.read_csv(csv_file_path)
