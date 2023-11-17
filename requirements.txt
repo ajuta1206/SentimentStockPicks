@@ -267,7 +267,7 @@ pyviz-comms @ file:///C:/b/abs_6cq38vhwa5/croot/pyviz_comms_1685030740344/work
 PyWavelets @ file:///C:/ci_311/pywavelets_1676504105729/work
 pywin32==305.1
 pywin32-ctypes @ file:///C:/ci_311/pywin32-ctypes_1676427747089/work
-pywinpty @ file:///C:/ci_311/pywinpty_1677707791185/work/target/wheels/pywinpty-2.0.10-cp311-none-win_amd64.whl
+pywinpty 
 PyYAML @ file:///C:/ci_311/pyyaml_1676432488822/work
 pyzmq @ file:///C:/ci_311/pyzmq_1676423601304/work
 QDarkStyle @ file:///tmp/build/80754af9/qdarkstyle_1617386714626/work
