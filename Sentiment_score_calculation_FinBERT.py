@@ -1,3 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct 24 15:45:37 2023
+
+@author: Archana
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Oct 23 19:45:29 2023
+
+@author: Archana
+"""
+
 import pandas as pd
 from transformers import BertTokenizer, BertForSequenceClassification
 from transformers import pipeline
