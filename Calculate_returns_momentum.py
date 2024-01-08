@@ -32,12 +32,12 @@ def calculate_returns(ticker_symbol, start_date, days_required):
     Parameters
     ----------
     ticker_symbol : TYPE
-        DESCRIPTION.
+        DESCRIPTION. Stock tickers
     date : TYPE
-        DESCRIPTION.
+        DESCRIPTION. Date from which returns are calculated
     days_required : TYPE
-        DESCRIPTION.
-
+        DESCRIPTION. 30 days, 90 days or 180 days for returns 
+        
     Returns
     -------
     TYPE
@@ -71,11 +71,11 @@ def calculate_momentum(ticker_symbol, end_date, days_required):
     Parameters
     ----------
     ticker_symbol : TYPE
-        DESCRIPTION.
+        DESCRIPTION. Srock tickers
     end_date : TYPE
-        DESCRIPTION.
+        DESCRIPTION. Date till which momentum is calculated 
     days_required : TYPE
-        DESCRIPTION.
+        DESCRIPTION. 30 days, 90 days, or 365 days for momentum calculations. 
 
     Returns
     -------
